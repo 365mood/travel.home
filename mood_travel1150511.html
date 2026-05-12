@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>木德去旅遊 | 365Mood Travel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;1,400&family=Noto+Serif+TC:wght@300;600&family=Montserrat:wght@200;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ins-white: #FFFFFF;
+            --ins-cream: #FAF9F6;
+            --ins-sand-light: #F2F0EA;
+            --ins-sand-dark: #E8E4D9;
+            --ins-text: #454545;
+            --ins-border: #E5E1D8;
+        }
+
+        body {
+            background-color: var(--ins-cream);
+            color: var(--ins-text);
+            font-family: 'Montserrat', 'Noto Serif TC', serif;
+            letter-spacing: 0.03em;
+        }
+
+        .serif-italic { font-family: 'Bodoni Moda', serif; font-style: italic; }
+        .serif-bold { font-family: 'Noto Serif TC', serif; font-weight: 600; }
+
+        .glass-nav {
+            background: rgba(250, 249, 246, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--ins-border);
+        }
+
+        .category-card {
+            background: var(--ins-white);
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.01);
+        }
+
+        .category-card:hover {
+            border-color: #C2B9AC;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+        }
+
+        .recommend-inline {
+            background: var(--ins-white);
+            border: 1px solid var(--ins-border);
+            transition: all 0.3s ease;
+        }
+
+        .recommend-inline:hover {
+            background: var(--ins-sand-light);
+        }
+
+        .dest-line {
+            border-bottom: 1px solid var(--ins-border);
+            transition: all 0.3s ease;
+        }
+
+        .dest-line:hover {
+            padding-left: 1rem;
+            color: #A39684;
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Sticky Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav px-8 py-5 flex justify-between items-center">
+        <div class="serif-bold text-xl tracking-[0.15em]">木德去旅遊</div>
+        <div class="flex gap-8 text-[10px] uppercase tracking-[0.3em] font-light">
+            <a href="#destinations" class="hover:opacity-50">行程推薦</a>
+            <a href="https://line.me/R/ti/p/@732icecf" target="_blank" class="hover:opacity-50">官方 LINE@</a>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto px-6 pt-32 pb-24">
+        
+        <!-- Functional Grid (6 Columns) -->
+        <section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-4">
+            <a href="https://www.trip.com/t/iyL66AHseU2" target="_blank" class="category-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
+                <span class="text-xl">✈️</span>
+                <div class="text-[10px] font-medium tracking-widest uppercase text-center">機票預訂</div>
+            </a>
+            <a href="https://www.kkday.com/zh-tw/product/productlist?product_categories=CATEGORY_074&tab_key=?cid=22347" target="_blank" class="category-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
+                <span class="text-xl">🏷️</span>
+                <div class="text-[10px] font-medium tracking-widest uppercase text-center">優惠機票</div>
+            </a>
+            <a href="https://www.trip.com/t/iyL66AHseU2" target="_blank" class="category-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
+                <span class="text-xl">🏨</span>
+                <div class="text-[10px] font-medium tracking-widest uppercase text-center">精選住宿</div>
+            </a>
+            <a href="https://www.kkday.com/zh-tw/category/global/experiences/?cid=22347" target="_blank" class="category-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
+                <span class="text-xl">🗺️</span>
+                <div class="text-[10px] font-medium tracking-widest uppercase text-center">行程規劃</div>
+            </a>
+            <a href="https://www.kkday.com/zh-tw/category/global/attraction-tickets/?cid=22347" target="_blank" class="category-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
+                <span class="text-xl">🎟️</span>
+                <div class="text-[10px] font-medium tracking-widest uppercase text-center">景點門票</div>
+            </a>
+            <a href="https://www.kkday.com/zh-tw/portable-travel-wifi-sim-card?cid=22347" target="_blank" class="category-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
+                <span class="text-xl">📶</span>
+                <div class="text-[10px] font-medium tracking-widest uppercase text-center">網路通訊</div>
+            </a>
+            <a href="https://collshp.com/365mood?view=storefront" target="_blank" class="category-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
+                <span class="text-xl">🧳</span>
+                <div class="text-[10px] font-medium tracking-widest uppercase text-center">行李箱推薦</div>
+            </a>
+            <a href="https://collshp.com/365mood?view=storefront" target="_blank" class="category-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
+                <span class="text-xl">⚡</span>
+                <div class="text-[10px] font-medium tracking-widest uppercase text-center">行動電源推薦</div>
+            </a>
+        </section>
+
+        <!-- Destinations Section -->
+        <section id="destinations" class="mb-20 mt-20">
+            <div class="flex items-baseline justify-between mb-8 border-b border-stone-200 pb-4">
+                <h2 class="serif-italic text-2xl">Destinations</h2>
+                <span class="text-[9px] uppercase tracking-widest text-stone-400">各國旅遊電子書</span>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12">
+                <div class="dest-line py-5 flex justify-between items-center cursor-pointer group">
+                    <span class="text-sm tracking-widest">中國 CHINA</span>
+                    <span class="text-[10px] text-stone-300 group-hover:text-stone-500 italic">Explore</span>
+                </div>
+                <div class="dest-line py-5 flex justify-between items-center cursor-pointer group">
+                    <span class="text-sm tracking-widest">日本 JAPAN</span>
+                    <span class="text-[10px] text-stone-300 group-hover:text-stone-500 italic">Explore</span>
+                </div>
+                <div class="dest-line py-5 flex justify-between items-center cursor-pointer group">
+                    <span class="text-sm tracking-widest">韓國 KOREA</span>
+                    <span class="text-[10px] text-stone-300 group-hover:text-stone-500 italic">Explore</span>
+                </div>
+                <div class="dest-line py-5 flex justify-between items-center cursor-pointer group">
+                    <span class="text-sm tracking-widest">泰國 THAILAND</span>
+                    <span class="text-[10px] text-stone-300 group-hover:text-stone-500 italic">Explore</span>
+                </div>
+                <div class="dest-line py-5 flex justify-between items-center cursor-pointer group">
+                    <span class="text-sm tracking-widest">越南 VIETNAM</span>
+                    <span class="text-[10px] text-stone-300 group-hover:text-stone-500 italic">Explore</span>
+                </div>
+                <div class="dest-line py-5 flex justify-between items-center cursor-pointer group">
+                    <span class="text-sm tracking-widest">新加坡 SINGAPORE</span>
+                    <span class="text-[10px] text-stone-300 group-hover:text-stone-500 italic">Explore</span>
+                </div>
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-24 bg-white border-t border-stone-100 px-8 text-center">
+        <div class="serif-bold text-2xl tracking-tighter mb-6">木德去旅遊</div>
+        <div class="flex justify-center gap-10 text-[10px] uppercase tracking-[0.3em] text-stone-400 mb-12">
+            <a href="https://www.instagram.com/365mood.travel/" target="_blank" class="hover:text-stone-800 transition">Instagram</a>
+            <a href="https://www.threads.com/@365mood.travel" target="_blank" class="hover:text-stone-800 transition">Threads</a>
+            <a href="https://line.me/R/ti/p/@732icecf" target="_blank" class="hover:text-stone-800 transition">Contact</a>
+        </div>
+        <div class="text-[8px] tracking-[0.5em] text-stone-200 uppercase">
+            &copy; 2024 365Mood Travel. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
