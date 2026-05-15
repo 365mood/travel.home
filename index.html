@@ -81,7 +81,7 @@
         /* ICON GRID — fixed 4 cols */
         .icon-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: 1fr;
             gap: 10px;
             margin-bottom: 32px;
         }
@@ -90,12 +90,12 @@
             background: var(--ins-white);
             border: 1px solid rgba(0,0,0,0.05);
             border-radius: 14px;
-            padding: 14px 6px;
+            padding: 16px 20px;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
+            justify-content: flex-start;
+            gap: 14px;
             text-decoration: none;
             color: var(--ins-text);
             box-shadow: 0 2px 8px rgba(0,0,0,0.03);
@@ -106,15 +106,14 @@
             background: var(--ins-sand-light);
         }
 
-        .card-icon { font-size: 22px; line-height: 1; }
+        .card-icon { font-size: 22px; line-height: 1; flex-shrink: 0; }
 
         .card-label {
-            font-size: 9px;
+            font-size: 11px;
             font-weight: 500;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            text-align: center;
-            line-height: 1.3;
+            text-align: left;
         }
 
         /* DESTINATIONS */
@@ -140,9 +139,15 @@
             color: #aaa;
         }
 
+        .dest-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
         .dest-line {
             border-bottom: 1px solid var(--ins-border);
-            padding: 16px 4px;
+            border-right: 1px solid transparent;
+            padding: 16px 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -152,8 +157,17 @@
             transition: padding-left 0.2s, color 0.2s;
         }
 
+        /* add right divider on odd items (left column) */
+        .dest-line:nth-child(odd) {
+            border-right: 1px solid var(--ins-border);
+            padding-right: 16px;
+        }
+
+        .dest-line:nth-child(even) {
+            padding-left: 16px;
+        }
+
         .dest-line:active {
-            padding-left: 12px;
             color: #A39684;
         }
 
@@ -264,6 +278,7 @@
                 <h2>Destinations</h2>
                 <span>各國旅遊電子書</span>
             </div>
+            <div class="dest-grid">
             <a class="dest-line" href="#" onclick="return false;">
                 <span class="dest-name">中國 CHINA</span>
                 <span class="dest-explore">Explore</span>
@@ -288,6 +303,7 @@
                 <span class="dest-name">新加坡 SINGAPORE</span>
                 <span class="dest-explore">Explore</span>
             </a>
+            </div>
         </section>
 
     </main>
