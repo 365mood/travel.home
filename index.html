@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>木德去旅遊 | 365Mood Travel</title>
+    <!-- 載入專屬優雅字型 -->
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;1,400&family=Noto+Serif+TC:wght@300;600&family=Montserrat:wght@200;400;500&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --ins-white: #FFFFFF;
@@ -21,13 +23,15 @@
             color: var(--ins-text);
             font-family: 'Montserrat', 'Noto Serif TC', serif;
             letter-spacing: 0.03em;
-            /* Fixed mobile width, centered on desktop */
-            width: 390px;
+            /* 手機板寬度限制，在電腦版畫面上會自動置中，呈現 Link-in-bio 精緻質感 */
+            width: 100%;
+            max-width: 390px;
             margin: 0 auto;
             min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
         }
 
-        /* desktop wrapper bg */
+        /* 桌上型電腦背景底色 */
         html {
             background: #e8e5df;
         }
@@ -35,13 +39,14 @@
         .serif-italic { font-family: 'Bodoni Moda', serif; font-style: italic; }
         .serif-bold   { font-family: 'Noto Serif TC', serif; font-weight: 600; }
 
-        /* NAV */
+        /* 導覽列設計 */
         nav {
             position: sticky;
             top: 0;
             z-index: 50;
             background: rgba(250, 249, 246, 0.92);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--ins-border);
             padding: 16px 20px;
             display: flex;
@@ -54,35 +59,24 @@
             font-weight: 600;
             font-size: 16px;
             letter-spacing: 0.15em;
+            width: 100%;
+            text-align: center; /* 移除導覽連結後，將標題優雅置中 */
         }
 
         .nav-links {
-            display: flex;
-            gap: 20px;
+            display: none; /* 隱藏無連結的導覽列容器 */
         }
 
-        .nav-links a {
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 0.3em;
-            font-weight: 300;
-            color: var(--ins-text);
-            text-decoration: none;
-            opacity: 0.7;
-        }
-
-        .nav-links a:active { opacity: 0.3; }
-
-        /* MAIN */
+        /* 主內容區 */
         main {
             padding: 24px 16px 40px;
         }
 
-        /* ICON GRID — fixed 4 cols */
+        /* 旅遊功能卡片網格 */
         .icon-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 10px;
+            gap: 12px;
             margin-bottom: 32px;
         }
 
@@ -90,100 +84,47 @@
             background: var(--ins-white);
             border: 1px solid rgba(0,0,0,0.05);
             border-radius: 14px;
-            padding: 16px 20px;
+            padding: 18px 20px;
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: flex-start;
-            gap: 14px;
+            gap: 16px;
             text-decoration: none;
             color: var(--ins-text);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-            transition: background 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* 觸控與滑鼠懸停回饋 */
+        @media (hover: hover) {
+            .category-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+                border-color: var(--ins-border);
+            }
         }
 
         .category-card:active {
             background: var(--ins-sand-light);
+            transform: scale(0.98);
         }
 
-        .card-icon { font-size: 22px; line-height: 1; flex-shrink: 0; }
+        .card-icon { 
+            font-size: 22px; 
+            line-height: 1; 
+            flex-shrink: 0; 
+        }
 
         .card-label {
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 500;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             text-align: left;
         }
 
-        /* DESTINATIONS */
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            border-bottom: 1px solid var(--ins-border);
-            padding-bottom: 12px;
-            margin-bottom: 0;
-        }
-
-        .section-header h2 {
-            font-family: 'Bodoni Moda', serif;
-            font-style: italic;
-            font-size: 20px;
-        }
-
-        .section-header span {
-            font-size: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: #aaa;
-        }
-
-        .dest-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .dest-line {
-            border-bottom: 1px solid var(--ins-border);
-            border-right: 1px solid transparent;
-            padding: 16px 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            text-decoration: none;
-            color: var(--ins-text);
-            transition: padding-left 0.2s, color 0.2s;
-        }
-
-        /* add right divider on odd items (left column) */
-        .dest-line:nth-child(odd) {
-            border-right: 1px solid var(--ins-border);
-            padding-right: 16px;
-        }
-
-        .dest-line:nth-child(even) {
-            padding-left: 16px;
-        }
-
-        .dest-line:active {
-            color: #A39684;
-        }
-
-        .dest-name {
-            font-size: 12px;
-            letter-spacing: 0.2em;
-        }
-
-        .dest-explore {
-            font-family: 'Bodoni Moda', serif;
-            font-style: italic;
-            font-size: 10px;
-            color: #ccc;
-        }
-
-        /* FOOTER */
+        /* 頁尾設計 */
         footer {
             background: var(--ins-white);
             border-top: 1px solid var(--ins-border);
@@ -207,36 +148,36 @@
         }
 
         .footer-links a {
-            font-size: 9px;
+            font-size: 10px;
             text-transform: uppercase;
-            letter-spacing: 0.3em;
-            color: #aaa;
+            letter-spacing: 0.2em;
+            color: #888;
             text-decoration: none;
+            transition: color 0.2s;
         }
 
-        .footer-links a:active { color: #454545; }
+        .footer-links a:active, .footer-links a:hover { 
+            color: #454545; 
+        }
 
         .footer-copy {
-            font-size: 7px;
-            letter-spacing: 0.4em;
+            font-size: 8px;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: #ddd;
+            color: #ccc;
+            line-height: 1.5;
         }
     </style>
 </head>
 <body>
 
+    <!-- 頂部導覽列 -->
     <nav>
         <div class="nav-title">木德去旅遊</div>
-        <div class="nav-links">
-            <a href="#destinations">行程推薦</a>
-            <a href="https://line.me/R/ti/p/@732icecf" target="_blank">官方 LINE@</a>
-        </div>
     </nav>
 
+    <!-- 主內容區：精選推薦連結卡片 -->
     <main>
-
-        <!-- 8-button icon grid, 4 per row -->
         <div class="icon-grid">
             <a href="https://www.trip.com/t/iyL66AHseU2" target="_blank" class="category-card">
                 <span class="card-icon">✈️</span>
@@ -271,49 +212,14 @@
                 <span class="card-label">行動電源推薦</span>
             </a>
         </div>
-
-        <!-- Destinations -->
-        <section id="destinations">
-            <div class="section-header">
-                <h2>Destinations</h2>
-                <span>各國旅遊電子書</span>
-            </div>
-            <div class="dest-grid">
-            <a class="dest-line" href="#" onclick="return false;">
-                <span class="dest-name">中國 CHINA</span>
-                <span class="dest-explore">Explore</span>
-            </a>
-            <a class="dest-line" href="#" onclick="return false;">
-                <span class="dest-name">日本 JAPAN</span>
-                <span class="dest-explore">Explore</span>
-            </a>
-            <a class="dest-line" href="#" onclick="return false;">
-                <span class="dest-name">韓國 KOREA</span>
-                <span class="dest-explore">Explore</span>
-            </a>
-            <a class="dest-line" href="#" onclick="return false;">
-                <span class="dest-name">泰國 THAILAND</span>
-                <span class="dest-explore">Explore</span>
-            </a>
-            <a class="dest-line" href="#" onclick="return false;">
-                <span class="dest-name">越南 VIETNAM</span>
-                <span class="dest-explore">Explore</span>
-            </a>
-            <a class="dest-line" href="#" onclick="return false;">
-                <span class="dest-name">新加坡 SINGAPORE</span>
-                <span class="dest-explore">Explore</span>
-            </a>
-            </div>
-        </section>
-
     </main>
 
+    <!-- 頁尾與社群資訊 -->
     <footer>
         <div class="footer-title">木德去旅遊</div>
         <div class="footer-links">
             <a href="https://www.instagram.com/365mood.travel/" target="_blank">Instagram</a>
             <a href="https://www.threads.com/@365mood.travel" target="_blank">Threads</a>
-            <a href="https://line.me/R/ti/p/@732icecf" target="_blank">Contact</a>
         </div>
         <div class="footer-copy">&copy; 2025 365Mood Travel. All Rights Reserved.</div>
     </footer>
