@@ -15,6 +15,7 @@
 </head>
 <body class="text-neutral-800 antialiased font-sans min-h-screen">
 
+    <!-- 提示訊息 -->
     <div id="toast" class="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-neutral-900 text-white text-[11px] tracking-widest px-6 py-3 rounded-full shadow-xl opacity-0 pointer-events-none transition-all duration-300 flex items-center space-x-2">
         <i data-lucide="check" class="w-3 h-3"></i>
         <span id="toast-text">已複製</span>
@@ -26,12 +27,13 @@
             <p class="text-neutral-400 text-[11px] tracking-[0.2em] uppercase font-light">Journey Without Limits.</p>
         </div>
 
-        <!-- 3 個分頁選單 -->
+        <!-- 4 個分頁選單 -->
         <div class="mb-8 bg-neutral-200/50 p-1 rounded-2xl flex relative border border-neutral-200/30">
-            <div id="tab-indicator" class="absolute top-1 bottom-1 left-1 w-[calc(33.33%-4px)] bg-white rounded-xl shadow-sm transition-transform duration-300 ease-out"></div>
-            <button onclick="switchTab('trip')" id="btn-trip" class="relative z-10 flex-1 py-2.5 text-[11px] tracking-widest font-medium text-neutral-800">TRIP</button>
-            <button onclick="switchTab('kkday')" id="btn-kkday" class="relative z-10 flex-1 py-2.5 text-[11px] tracking-widest font-medium text-neutral-400">KKDAY</button>
-            <button onclick="switchTab('rewards')" id="btn-rewards" class="relative z-10 flex-1 py-2.5 text-[11px] tracking-widest font-medium text-neutral-400">回饋</button>
+            <div id="tab-indicator" class="absolute top-1 bottom-1 left-1 w-[calc(25%-4px)] bg-white rounded-xl shadow-sm transition-transform duration-300 ease-out"></div>
+            <button onclick="switchTab('trip')" id="btn-trip" class="relative z-10 flex-1 py-2.5 text-[10px] tracking-widest font-medium text-neutral-800">TRIP</button>
+            <button onclick="switchTab('kkday')" id="btn-kkday" class="relative z-10 flex-1 py-2.5 text-[10px] tracking-widest font-medium text-neutral-400">KKDAY</button>
+            <button onclick="switchTab('goodies')" id="btn-goodies" class="relative z-10 flex-1 py-2.5 text-[10px] tracking-widest font-medium text-neutral-400">好物推薦</button>
+            <button onclick="switchTab('rewards')" id="btn-rewards" class="relative z-10 flex-1 py-2.5 text-[10px] tracking-widest font-medium text-neutral-400">賺回饋</button>
         </div>
 
         <div class="flex-grow">
@@ -82,7 +84,7 @@
                         <i data-lucide="ticket" class="w-5 h-5"></i>
                     </div>
                     <div class="flex flex-col text-left">
-                        <span class="text-[10px] font-medium opacity-90">KKday 94折</span>
+                        <span class="text-[10px] font-medium opacity-90">KKday 滿1500享94折</span>
                         <span class="text-lg font-bold tracking-widest">KKMOOD94</span>
                     </div>
                 </div>
@@ -90,7 +92,7 @@
                 <div class="grid grid-cols-2 gap-3">
                     <a href="https://www.kkday.com/zh-tw/product/productlist?cid=22347" target="_blank" class="flex flex-col items-center p-5 bg-white border border-neutral-100 rounded-3xl ins-shadow btn-shadow">
                         <div class="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center mb-3"><i data-lucide="sparkles" class="w-5 h-5 text-rose-600"></i></div>
-                        <span class="text-[11px] font-medium tracking-widest">優惠機票</span>
+                        <span class="text-[11px] font-medium tracking-widest">機票</span>
                     </a>
                     <a href="https://www.kkday.com/zh-tw/product/productlist?cid=22347" target="_blank" class="flex flex-col items-center p-5 bg-white border border-neutral-100 rounded-3xl ins-shadow btn-shadow">
                         <div class="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center mb-3"><i data-lucide="bed-double" class="w-5 h-5 text-amber-600"></i></div>
@@ -115,43 +117,99 @@
                 </div>
             </div>
 
+            <!-- 好物推薦 區塊 -->
+            <div id="goodies-links" class="space-y-4 hidden animate-in fade-in duration-500">
+                <a href="https://s.shopee.tw/9UtS9HhSZ3" target="_blank" class="flex items-center p-4 bg-white border border-neutral-100 rounded-2xl ins-shadow btn-shadow gap-4">
+                    <div class="p-2 bg-orange-50 rounded-full"><i data-lucide="luggage" class="w-5 h-5 text-orange-600"></i></div>
+                    <div class="flex-1">
+                        <h4 class="text-[12px] font-bold tracking-widest mb-1">Arowana行李箱</h4>
+                        <p class="text-[10px] text-neutral-500">前掀雙開式+煞車彈簧輪+3年保固</p>
+                    </div>
+                </a>
+                <a href="https://s.shopee.tw/7fRwuWAgK8" target="_blank" class="flex items-center p-4 bg-white border border-neutral-100 rounded-2xl ins-shadow btn-shadow gap-4">
+                    <div class="p-2 bg-emerald-50 rounded-full"><i data-lucide="battery-charging" class="w-5 h-5 text-emerald-600"></i></div>
+                    <div class="flex-1">
+                        <h4 class="text-[12px] font-bold tracking-widest mb-1">iWALK行動電源</h4>
+                        <p class="text-[10px] text-neutral-500">Wh標示+3C認證</p>
+                    </div>
+                </a>
+                <a href="https://s.shopee.tw/30kzcdir6m" target="_blank" class="flex items-center p-4 bg-white border border-neutral-100 rounded-2xl ins-shadow btn-shadow gap-4">
+                    <div class="p-2 bg-red-50 rounded-full"><i data-lucide="camera" class="w-5 h-5 text-red-600"></i></div>
+                    <div class="flex-1">
+                        <h4 class="text-[12px] font-bold tracking-widest mb-1">富士一次性即可拍</h4>
+                        <p class="text-[10px] text-neutral-500">ISO 400+底片27張</p>
+                    </div>
+                </a>
+                <a href="https://s.shopee.tw/6feHzs95sg" target="_blank" class="flex items-center p-4 bg-white border border-neutral-100 rounded-2xl ins-shadow btn-shadow gap-4">
+                    <div class="p-2 bg-blue-50 rounded-full"><i data-lucide="droplets" class="w-5 h-5 text-blue-600"></i></div>
+                    <div class="flex-1">
+                        <h4 class="text-[12px] font-bold tracking-widest mb-1">理膚寶水 B5+</h4>
+                        <p class="text-[10px] text-neutral-500">舒緩肌膚問題+Baby也能用</p>
+                    </div>
+                </a>
+            </div>
+
             <!-- 賺回饋 區塊 -->
             <div id="rewards-links" class="space-y-6 hidden animate-in fade-in duration-500">
                 <div class="text-center text-neutral-400 text-[10px] tracking-[0.2em] py-2">回饋%數以網站為主</div>
                 
                 <div>
-                    <h3 class="text-[11px] font-bold tracking-widest text-neutral-500 mb-3 px-1">旅遊平台</h3>
-                    <div class="grid grid-cols-2 gap-3">
-                        <a href="https://line.soocker.tw/r/G1pjb2xWjrohaotw6" target="_blank" class="flex items-center justify-center p-4 bg-white border border-neutral-100 rounded-2xl ins-shadow btn-shadow text-[11px] font-medium tracking-widest">易遊網</a>
-                        <a href="https://line.soocker.tw/r/NA7pNSUX9t3PP92H8" target="_blank" class="flex items-center justify-center p-4 bg-white border border-neutral-100 rounded-2xl ins-shadow btn-shadow text-[11px] font-medium tracking-widest text-center px-1">Get Your Guide</a>
+                    <h3 class="text-[11px] font-bold tracking-widest text-neutral-500 mb-3 px-1">LINE POINTS 回饋</h3>
+                    <div class="space-y-3">
+                        <div class="text-[10px] font-bold text-neutral-400 mb-1 px-1">旅遊平台</div>
+                        <a href="https://line.soocker.tw/r/G1pjb2xWjrohaotw6" target="_blank" class="flex items-center p-4 bg-white border border-neutral-100 rounded-2xl ins-shadow btn-shadow gap-4">
+                            <div class="p-2 bg-sky-50 rounded-full"><i data-lucide="globe" class="w-5 h-5 text-sky-600"></i></div>
+                            <h4 class="text-[12px] font-bold tracking-widest">易遊網</h4>
+                        </a>
+                        <a href="https://line.soocker.tw/r/NA7pNSUX9t3PP92H8" target="_blank" class="flex items-center p-4 bg-white border border-neutral-100 rounded-2xl ins-shadow btn-shadow gap-4">
+                            <div class="p-2 bg-emerald-50 rounded-full"><i data-lucide="map" class="w-5 h-5 text-emerald-600"></i></div>
+                            <h4 class="text-[12px] font-bold tracking-widest">Get Your Guide</h4>
+                        </a>
+                        
+                        <div class="text-[10px] font-bold text-neutral-400 mb-1 px-1 pt-2">航空公司</div>
+                        <a href="https://line.soocker.tw/r/pp5VqEvq7Hyvsjan8" target="_blank" class="flex items-center p-4 bg-white border border-neutral-100 rounded-2xl ins-shadow btn-shadow gap-4">
+                            <div class="p-2 bg-amber-50 rounded-full"><i data-lucide="plane" class="w-5 h-5 text-amber-600"></i></div>
+                            <h4 class="text-[12px] font-bold tracking-widest">虎航</h4>
+                        </a>
+                        <a href="https://line.soocker.tw/r/2FMei1mw7cRL4gcn6" target="_blank" class="flex items-center p-4 bg-white border border-neutral-100 rounded-2xl ins-shadow btn-shadow gap-4">
+                            <div class="p-2 bg-rose-50 rounded-full"><i data-lucide="plane" class="w-5 h-5 text-rose-600"></i></div>
+                            <h4 class="text-[12px] font-bold tracking-widest">AirAsia</h4>
+                        </a>
+                        <a href="https://line.soocker.tw/r/UzBTcUhE8ZikxgwX7" target="_blank" class="flex items-center p-4 bg-white border border-neutral-100 rounded-2xl ins-shadow btn-shadow gap-4">
+                            <div class="p-2 bg-purple-50 rounded-full"><i data-lucide="plane" class="w-5 h-5 text-purple-600"></i></div>
+                            <h4 class="text-[12px] font-bold tracking-widest">阿聯酋航空</h4>
+                        </a>
+                        
+                        <div class="text-[10px] font-bold text-neutral-400 mb-1 px-1 pt-2">旅平險</div>
+                        <a href="https://line.soocker.tw/r/yFi4d6P5ZAjGX1LL7" target="_blank" class="flex items-center p-4 bg-white border border-neutral-100 rounded-2xl ins-shadow btn-shadow gap-4">
+                            <div class="p-2 bg-cyan-50 rounded-full"><i data-lucide="shield-check" class="w-5 h-5 text-cyan-600"></i></div>
+                            <h4 class="text-[12px] font-bold tracking-widest">國泰人壽</h4>
+                        </a>
+                        <a href="https://line.soocker.tw/r/Uk5hiHLe1NA36PT48" target="_blank" class="flex items-center p-4 bg-white border border-neutral-100 rounded-2xl ins-shadow btn-shadow gap-4">
+                            <div class="p-2 bg-cyan-50 rounded-full"><i data-lucide="shield-check" class="w-5 h-5 text-cyan-600"></i></div>
+                            <h4 class="text-[12px] font-bold tracking-widest">保誠人壽</h4>
+                        </a>
+                        <a href="https://line.soocker.tw/r/trLZcWLiGZNndfQm6" target="_blank" class="flex items-center p-4 bg-white border border-neutral-100 rounded-2xl ins-shadow btn-shadow gap-4">
+                            <div class="p-2 bg-cyan-50 rounded-full"><i data-lucide="shield-check" class="w-5 h-5 text-cyan-600"></i></div>
+                            <h4 class="text-[12px] font-bold tracking-widest">台灣人壽</h4>
+                        </a>
                     </div>
                 </div>
 
                 <div class="border-t border-neutral-200"></div>
 
                 <div>
-                    <h3 class="text-[11px] font-bold tracking-widest text-neutral-500 mb-3 px-1">航空公司</h3>
-                    <div class="grid grid-cols-2 gap-3">
-                        <a href="https://line.soocker.tw/r/pp5VqEvq7Hyvsjan8" target="_blank" class="flex items-center justify-center p-4 bg-white border border-neutral-100 rounded-2xl ins-shadow btn-shadow text-[11px] font-medium tracking-widest">虎航</a>
-                        <a href="https://line.soocker.tw/r/2FMei1mw7cRL4gcn6" target="_blank" class="flex items-center justify-center p-4 bg-white border border-neutral-100 rounded-2xl ins-shadow btn-shadow text-[11px] font-medium tracking-widest">AirAsia</a>
-                        <a href="https://line.soocker.tw/r/UzBTcUhE8ZikxgwX7" target="_blank" class="flex items-center justify-center p-4 bg-white border border-neutral-100 rounded-2xl ins-shadow btn-shadow text-[11px] font-medium tracking-widest">阿聯酋</a>
-                    </div>
-                </div>
-
-                <div class="border-t border-neutral-200"></div>
-
-                <div>
-                    <h3 class="text-[11px] font-bold tracking-widest text-neutral-500 mb-3 px-1">旅平險</h3>
-                    <div class="grid grid-cols-2 gap-3">
-                        <a href="https://line.soocker.tw/r/yFi4d6P5ZAjGX1LL7" target="_blank" class="flex items-center justify-center p-4 bg-white border border-neutral-100 rounded-2xl ins-shadow btn-shadow text-[11px] font-medium tracking-widest">國泰人壽</a>
-                        <a href="https://line.soocker.tw/r/Uk5hiHLe1NA36PT48" target="_blank" class="flex items-center justify-center p-4 bg-white border border-neutral-100 rounded-2xl ins-shadow btn-shadow text-[11px] font-medium tracking-widest">保誠人壽</a>
-                        <a href="https://line.soocker.tw/r/trLZcWLiGZNndfQm6" target="_blank" class="flex items-center justify-center p-4 bg-white border border-neutral-100 rounded-2xl ins-shadow btn-shadow text-[11px] font-medium tracking-widest">台灣人壽</a>
-                    </div>
+                    <h3 class="text-[11px] font-bold tracking-widest text-neutral-500 mb-3 px-1">現金回饋</h3>
+                    <a href="https://app.shopback.com/s18z1ULqj3b" target="_blank" class="flex items-center p-4 bg-white border border-neutral-100 rounded-2xl ins-shadow btn-shadow gap-4">
+                        <div class="p-2 bg-yellow-50 rounded-full"><i data-lucide="dollar-sign" class="w-5 h-5 text-yellow-600"></i></div>
+                        <h4 class="text-[12px] font-bold tracking-widest">ShopBack</h4>
+                    </a>
                 </div>
             </div>
         </div>
     </main>
 
+    <!-- 固定懸浮 LINE 按鈕 -->
     <a href="https://line.me/R/ti/p/@732icecf" target="_blank" class="fixed bottom-6 right-6 z-40 bg-[#06C755] text-white p-3 rounded-2xl shadow-lg flex flex-col items-center justify-center w-20 h-20 btn-shadow animate-bounce">
         <i data-lucide="message-circle" class="w-6 h-6 mb-1"></i>
         <span class="text-[9px] font-bold tracking-tight text-center leading-tight">加入<br>LINE</span>
@@ -159,14 +217,12 @@
 
     <script>
         window.onload = () => lucide.createIcons();
-        
         function switchTab(tab) {
-            const tabs = ['trip', 'kkday', 'rewards'];
+            const tabs = ['trip', 'kkday', 'goodies', 'rewards'];
             const indicator = document.getElementById('tab-indicator');
             const index = tabs.indexOf(tab);
-            
             indicator.style.transform = `translateX(${index * 100}%)`;
-
+            
             tabs.forEach(t => {
                 const el = document.getElementById(`${t}-links`);
                 const btn = document.getElementById(`btn-${t}`);
@@ -179,7 +235,6 @@
                 }
             });
         }
-
         function copyPromoCode(code) {
             navigator.clipboard.writeText(code);
             const toast = document.getElementById('toast');
